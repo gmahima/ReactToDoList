@@ -1,2 +1,0 @@
-# ReactToDoList
-Created with CodeSandbox
