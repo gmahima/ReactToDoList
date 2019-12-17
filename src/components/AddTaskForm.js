@@ -1,5 +1,6 @@
 import React from "react";
 import { Consumer } from "./context";
+import { TextInput, Submit } from "./styled";
 
 export default function AddTaskForm() {
   const taskInput = React.createRef();
@@ -13,8 +14,8 @@ export default function AddTaskForm() {
         };
         return (
           <form onSubmit={handleSubmit}>
-            <input type="text" ref={taskInput} placeholder="enter task" />
-            <input type="submit" value="add task" />
+            <TextInput type="text" ref={taskInput} placeholder="enter task" />
+            <Submit type="submit" value="add task" />
           </form>
         );
       }}
