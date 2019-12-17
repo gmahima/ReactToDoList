@@ -1,13 +1,12 @@
 import React from "react";
 import { Consumer } from "./context/index";
+import Task from "./Task";
 export default function TaskList() {
   return (
     <Consumer>
       {context => {
         const taskList = context.tasks.map((task, index) => (
-          <div>
-            <h3>{task.name}</h3>
-          </div>
+          <Task index={index} key={task.id.toString()} />
         ));
         return <div>{taskList}</div>;
       }}

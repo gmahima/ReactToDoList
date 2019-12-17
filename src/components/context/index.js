@@ -5,7 +5,8 @@ export class Provider extends Component {
   state = {
     tasks: [
       {
-        name: "sdfasd"
+        name: "sdfasd",
+        id: 0
       }
     ]
   };
@@ -23,12 +24,22 @@ export class Provider extends Component {
       };
     });
   };
+  handleRemoveTask = id => {
+    this.setState(prevState => {
+      return {
+        tasks: prevState.tasks.filter(p => p.id !== id)
+      };
+    });
+  };
   render() {
     return (
       <Context.Provider
         value={{
           tasks: this.state.tasks,
-          actions: { addTask: this.handleAddTask }
+          actions: {
+            addTask: this.handleAddTask,
+            removeTask: this.handleRemoveTask
+          }
         }}
       >
         {this.props.children}
