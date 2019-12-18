@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 
 export const Button = styled.button`
-  color: white;
+  color: pink;
   background: purple;
   padding: 1em;
   margin: 10px;
@@ -21,17 +21,20 @@ export const TextInput = styled.input`
   display: inline-block;
   box-sizing: border-box;
   border-radius: 20px;
+  background-color: purple;
+  color: pink;
 `;
-export const Submit = styled.input`
-  width: 30%;
+export const Submit = styled(TextInput)`
   padding: 1px 2px;
   margin: 8px 3px;
-  display: inline-block;
-  border-radius: 20px;
-  box-sizing: border-box;
 `;
 export const Div = styled.div`
   padding: 2px;
-  background-color: pink;
+  background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
+  border-radius: 20px;
+`;
+export const Title = styled.h1`
+  background-color: purple;
+  color: pink;
   border-radius: 20px;
 `;

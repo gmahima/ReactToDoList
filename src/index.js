@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
-import { Provider } from "./components/context/index";
+import { Provider, Consumer } from "./components/context/index";
 import TaskList from "./components/TaskList";
 import AddTaskForm from "./components/AddTaskForm";
+import { Title } from "./components/styled";
 function App() {
   return (
     <div className="App">
-      <h1>To Do List</h1>
+      <Title>To Do List</Title>
+
       <TaskList />
       <AddTaskForm />
     </div>

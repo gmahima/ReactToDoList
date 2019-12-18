@@ -4,15 +4,15 @@ import Task from "./Task";
 import { Div } from "./styled";
 export default function TaskList() {
   return (
-    <Div>
+    <div>
       <Consumer>
         {context => {
           const taskList = context.tasks.map((task, index) => (
             <Task index={index} key={task.id.toString()} />
           ));
-          return <div>{taskList}</div>;
+          return <Div tasks={context.tasks}>{taskList}</Div>;
         }}
       </Consumer>
-    </Div>
+    </div>
   );
 }

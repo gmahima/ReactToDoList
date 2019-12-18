@@ -3,12 +3,7 @@ import React, { Component } from "react";
 const Context = React.createContext();
 export class Provider extends Component {
   state = {
-    tasks: [
-      {
-        name: "sdfasd",
-        id: 0
-      }
-    ]
+    tasks: []
   };
   prevTaskId = 0;
   handleAddTask = name => {
