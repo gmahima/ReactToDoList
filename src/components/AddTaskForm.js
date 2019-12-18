@@ -4,6 +4,7 @@ import { TextInput, Submit } from "./styled";
 
 export default function AddTaskForm() {
   const taskInput = React.createRef();
+
   return (
     <Consumer>
       {({ actions }) => {

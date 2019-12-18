@@ -2,13 +2,20 @@ import styled from "styled-components";
 import React from "react";
 
 export const Button = styled.button`
-  color: pink;
+  color: ${props => props.theme.main};
   background: purple;
   padding: 1em;
   margin: 10px;
   border-radius: 20px;
   display: inline-block;
 `;
+
+Button.defaultProps = {
+  theme: {
+    main: "white"
+  }
+};
+
 export const ToDo = styled.span`
   color: purple;
   font-size: 2em;
@@ -20,6 +27,9 @@ export const TextInput = styled.input`
   margin: 8px 3px;
   display: inline-block;
   box-sizing: border-box;
+  ::placeholder {
+    color: pink;
+  }
   border-radius: 20px;
   background-color: purple;
   color: pink;
