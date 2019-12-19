@@ -9,9 +9,10 @@ export default function Task({ index }) {
   return (
     <Consumer>
       {context => {
+        console.log(context.tasks[index].name);
         return (
           <div>
-            <ToDo>{context.tasks[index].name}</ToDo>,
+            <ToDo>{context.tasks[index].name}</ToDo>
             <ThemeProvider theme={theme}>
               <Button
                 onClick={() => {
