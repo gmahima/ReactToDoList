@@ -1,7 +1,27 @@
 import React from "react";
 import { Consumer } from "./context/index";
-import { Button, ToDo } from "./styled";
+import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
+
+const ToDo = styled.span`
+  color: purple;
+  font-size: 2em;
+`;
+
+const Button = styled.button`
+  color: ${props => props.theme.main};
+  background: purple;
+  padding: 1em;
+  margin: 10px;
+  border-radius: 20px;
+  display: inline-block;
+`;
+
+Button.defaultProps = {
+  theme: {
+    main: "white"
+  }
+};
 export default function Task({ index }) {
   const theme = {
     main: "pink"
