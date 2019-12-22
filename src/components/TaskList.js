@@ -16,7 +16,7 @@ export default function TaskList() {
   ));
   return (
     <div>
-      <Div tasks={context.tasks}>{taskList}</Div>;
+      <Div tasks={context.tasks}>{taskList}</Div>
     </div>
   );
 }
