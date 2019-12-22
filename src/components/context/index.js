@@ -1,45 +1,34 @@
-import React, { Component } from "react";
+import React, { useState, createContext } from "react";
 
-const Context = React.createContext();
-export class Provider extends Component {
-  state = {
-    tasks: []
-  };
-  prevTaskId = 0;
-  handleAddTask = name => {
-    this.setState(prevState => {
-      return {
-        tasks: [
-          ...prevState.tasks,
-          {
-            name,
-            id: (this.prevTaskId += 1)
-          }
-        ]
-      };
-    });
-  };
-  handleRemoveTask = id => {
-    this.setState(prevState => {
-      return {
-        tasks: prevState.tasks.filter(p => p.id !== id)
-      };
-    });
-  };
-  render() {
-    return (
-      <Context.Provider
-        value={{
-          tasks: this.state.tasks,
-          actions: {
-            addTask: this.handleAddTask,
-            removeTask: this.handleRemoveTask
-          }
-        }}
-      >
-        {this.props.children}
-      </Context.Provider>
-    );
-  }
-}
-export const Consumer = Context.Consumer;
+export const TaskContext = createContext(null);
+// export function Provider(props) {
+//   const [tasks, setTasks] = useState(null);
+//   let prevTaskId = 0;
+//   const handleAddTask = name => {
+//     setTasks([
+//       ...tasks,
+//       {
+//         name,
+//         id: (prevTaskId += 1)
+//       }
+//     ]);
+//   };
+//   const handleRemoveTask = id => {
+//     setTasks(tasks.filter(p => p.id !== id));
+//   };
+
+//   return (
+//     <TaskContext.Provider
+//       value={{
+//         tasks: tasks,
+//         actions: {
+//           addTask: handleAddTask,
+//           removeTask: handleRemoveTask
+//         }
+//       }}
+//     >
+//       {props.children}
+//     </TaskContext.Provider>
+//   );
+// }
+// export { TaskContext };
