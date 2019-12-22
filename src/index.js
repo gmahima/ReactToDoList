@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { TaskContext } from "./components/context/index";
@@ -19,15 +19,17 @@ const Application = styled.div`
 //export const TaskContext = createContext(null);
 function App() {
   const [tasks, setTasks] = useState([]);
-  let prevTaskId = 0;
+  const [prevTaskId, setPrevTaskId] = useState(0);
   const handleAddTask = name => {
     setTasks([
       ...tasks,
       {
         name,
-        id: (prevTaskId += 1)
+        id: prevTaskId
       }
     ]);
+
+    setPrevTaskId(prevTaskId + 1);
   };
   const handleRemoveTask = id => {
     setTasks(tasks.filter(p => p.id !== id));
