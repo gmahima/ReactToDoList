@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 //import { Consumer } from "./context/index";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
-//import { TaskContext } from "./context/index";
+import { TaskContext } from "./context/index";
 const ToDo = styled.span`
   color: purple;
   font-size: 2em;

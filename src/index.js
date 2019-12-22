@@ -16,8 +16,8 @@ const Application = styled.div`
   font-family: sans-serif;
   text-align: center;
 `;
+//export const TaskContext = createContext(null);
 function App() {
-  //const TaskContext = createContext(null);
   const [tasks, setTasks] = useState([]);
   let prevTaskId = 0;
   const handleAddTask = name => {

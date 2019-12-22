@@ -1,5 +1,5 @@
-import React from "react";
-//import { Consumer } from "./context";
+import React, { useContext } from "react";
+import { TaskContext } from "./context/index";
 import styled from "styled-components";
 const TextInput = styled.input`
   width: 30%;
@@ -21,17 +21,17 @@ const Submit = styled(TextInput)`
 export default function AddTaskForm() {
   const taskInput = React.createRef();
 
-  return ({ actions }) => {
-    const handleSubmit = event => {
-      event.preventDefault();
-      actions.addTask(taskInput.current.value);
-      event.currentTarget.reset();
-    };
-    return (
-      <form onSubmit={handleSubmit}>
-        <TextInput type="text" ref={taskInput} placeholder="enter task" />
-        <Submit type="submit" value="add task" />
-      </form>
-    );
+  const c = useContext(TaskContext);
+  const actions = c.actions;
+  const handleSubmit = event => {
+    event.preventDefault();
+    actions.addTask(taskInput.current.value);
+    event.currentTarget.reset();
   };
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextInput type="text" ref={taskInput} placeholder="enter task" />
+      <Submit type="submit" value="add task" />
+    </form>
+  );
 }

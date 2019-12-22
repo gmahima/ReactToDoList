@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Task from "./Task";
 //import { Div } from "./styled";
 import styled from "styled-components";
-//import { TaskContext } from "./context/index";
+import { TaskContext } from "./context/index";
 const Div = styled.div`
   padding: 2px;
   background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
