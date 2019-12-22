@@ -18,7 +18,7 @@ const Application = styled.div`
 `;
 function App() {
   //const TaskContext = createContext(null);
-  const [tasks, setTasks] = useState(null);
+  const [tasks, setTasks] = useState([]);
   let prevTaskId = 0;
   const handleAddTask = name => {
     setTasks([
