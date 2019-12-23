@@ -9,7 +9,6 @@ const Div = styled.div`
   border-radius: 20px;
 `;
 export default function TaskList() {
-  console.log(TaskContext);
   const context = useContext(TaskContext);
   const taskList = context.tasks.map((task, index) => (
     <Task index={index} key={task.id.toString()} />
