@@ -15,7 +15,7 @@ const Button = styled.button`
   padding: 1em;
   margin: 10px;
   border-radius: 20px;
-  display: inline-block;
+  display: inline;
 `;
 
 Button.defaultProps = {
@@ -45,7 +45,7 @@ export default function Task({ index }) {
             return context.actions.toggleIsDone(context.tasks[index].id);
           }}
         >
-          {context.tasks[index].done.toString()}
+          change done status
         </Button>
       </ThemeProvider>
     </div>
