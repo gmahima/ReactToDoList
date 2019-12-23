@@ -26,9 +26,8 @@ export function Provider(props) {
     } else {
       newTasks[i].done = false;
     }
-    console.log(newTasks);
+
     setTasks(newTasks);
-    console.log(tasks);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 //import { Consumer } from "./context/index";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
@@ -27,7 +27,9 @@ export default function Task({ index }) {
   const theme = {
     main: "pink"
   };
+
   const context = useContext(TaskContext);
+
   return (
     <div>
       <ToDo>{context.tasks[index].name}</ToDo>
@@ -41,11 +43,10 @@ export default function Task({ index }) {
         </Button>
         <Button
           onClick={() => {
-            console.log(context.tasks[index].done);
             return context.actions.toggleIsDone(context.tasks[index].id);
           }}
         >
-          change done status
+          {context.tasks[index].done.toString()}
         </Button>
       </ThemeProvider>
     </div>
