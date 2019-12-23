@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import TaskList from "./components/TaskList";
 import AddTaskForm from "./components/AddTaskForm";
 import TasksByStatus from "./components/TasksByStatus";
 
@@ -16,9 +15,8 @@ const Application = styled.div`
 export default function ToDoList({ match }) {
   return (
     <Application className="App">
-      <TasksByStatus match={match} />
       <Title>My To Do List</Title>
-      <TaskList />
+      <TasksByStatus match={match} />
       <AddTaskForm />
     </Application>
   );

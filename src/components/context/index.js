@@ -10,12 +10,25 @@ export function Provider(props) {
       ...tasks,
       {
         name,
-        id: prevTaskId
+        id: prevTaskId,
+        done: false
       }
     ]);
   };
   const handleRemoveTask = id => {
     setTasks(tasks.filter(p => p.id !== id));
+  };
+  const toggleIsDone = id => {
+    let newTasks = tasks;
+    const i = newTasks.findIndex(t => t.id === id);
+    if (newTasks[i].done === false) {
+      newTasks[i].done = true;
+    } else {
+      newTasks[i].done = false;
+    }
+    console.log(newTasks);
+    setTasks(newTasks);
+    console.log(tasks);
   };
 
   return (
@@ -24,7 +37,8 @@ export function Provider(props) {
         tasks: tasks,
         actions: {
           addTask: handleAddTask,
-          removeTask: handleRemoveTask
+          removeTask: handleRemoveTask,
+          toggleIsDone: toggleIsDone
         }
       }}
     >
