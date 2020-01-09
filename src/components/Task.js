@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
+import TaskList from "./TaskList";
 
 const ToDo = styled.span`
   color: purple;
@@ -23,30 +24,40 @@ Button.defaultProps = {
     main: "white"
   }
 };
-export default function Task({ index }) {
+export default function Task({ id }) {
+  const context = useContext(TaskContext);
   const theme = {
     main: "pink"
   };
+    let task = null;
+    for(let i = 0; i<context.tasks.length; i++)  {
+        if(context.tasks[i].id === id) {
+          task = context.tasks[i];
+        }
+    }
+  
 
-  const context = useContext(TaskContext);
-
+  
+  if(task===null) {
+    return null;
+  }
   return (
     <div>
-      <ToDo>{context.tasks[index].name}</ToDo>
+      <ToDo>{task.name}</ToDo>
       <ThemeProvider theme={theme}>
         <Button
           onClick={() => {
-            return context.actions.removeTask(context.tasks[index].id);
+            return context.actions.removeTask(task.id);
           }}
         >
           X
         </Button>
         <Button
           onClick={() => {
-            return context.actions.toggleIsDone(context.tasks[index].id);
+            return context.actions.toggleIsDone(task.id);
           }}
         >
-          {context.tasks[index].done.toString()}
+          {task.done.toString()}
         </Button>
       </ThemeProvider>
     </div>

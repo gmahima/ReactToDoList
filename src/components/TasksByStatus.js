@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Route, NavLink, Redirect } from "react-router-dom";
 import TaskList from "./TaskList";
 import { TaskContext } from "./context/index";
 export default function TasksByStatus({ match }) {
   const context = useContext(TaskContext);
-  const allTasks = context.tasks;
-  const doneTasks = context.tasks.filter(task => task.done === true);
-  const todoTasks = context.tasks.filter(task => task.done === false);
+  //const allTasks = context.tasks;
+  // const [doneTasks, setDoneTasks] = useState([]);
+  // const [todoTasks, setTodoTasks] = useState([]);
+  
   return (
     <div>
       <ul>
@@ -28,17 +29,17 @@ export default function TasksByStatus({ match }) {
       <Route
         exact
         path={`${match.path}all`}
-        render={() => <TaskList tasks={allTasks} />}
+        render={() => <TaskList tasks={"allTasks"} />}
       />
       <Route
         exact
         path={`${match.path}completed`}
-        render={() => <TaskList tasks={doneTasks} />}
+        render={() => <TaskList tasks={"doneTasks"} />}
       />
       <Route
         exact
         path={`${match.path}todo`}
-        render={() => <TaskList tasks={todoTasks} />}
+        render={() => <TaskList tasks={"todoTasks"} />}
       />
     </div>
   );
