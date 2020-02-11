@@ -18,9 +18,11 @@ export function Provider(props) {
   };
   //console.log(tasks);
   const handleRemoveTask = id => {
+    console.log(id , " is removed")
     setTasks(tasks.filter(p => p.id !== id));
   };
   const toggleIsDone = id => {
+    
     let newTasks = tasks;
     const i = newTasks.findIndex(t => t.id === id);
     if (newTasks[i].done === false) {
@@ -28,7 +30,7 @@ export function Provider(props) {
     } else {
       newTasks[i].done = false;
     }
-
+    console.log(id + " is toggled " + newTasks[i].done)
     setTasks(newTasks);
   };
   

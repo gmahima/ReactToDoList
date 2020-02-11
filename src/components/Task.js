@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 //import { Consumer } from "./context/index";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
@@ -25,25 +25,40 @@ Button.defaultProps = {
   }
 };
 export default function Task({ id }) {
+  const isInitialMount = useRef(true);
   const context = useContext(TaskContext);
   const theme = {
     main: "pink"
   };
+  // const [toggle, setToggle] = useState(false);
     let task = null;
-    for(let i = 0; i<context.tasks.length; i++)  {
+
+ 
+          
+          for(let i = 0; i<context.tasks.length; i++)  {
         if(context.tasks[i].id === id) {
           task = context.tasks[i];
         }
     }
+    console.log(task);
+    // useEffect(()=>{
+    //   if (isInitialMount.current) {
+    //     isInitialMount.current = false;
+    //  }
+    //   else { context.actions.toggleIsDone(task.id)}
+    // },[toggle])
   
 
   
   if(task===null) {
+    console.log("hi")
     return null;
   }
+  console.log("rerendered")
   return (
     <div>
       <ToDo>{task.name}</ToDo>
+      {console.log(task.name)}
       <ThemeProvider theme={theme}>
         <Button
           onClick={() => {
@@ -54,7 +69,9 @@ export default function Task({ id }) {
         </Button>
         <Button
           onClick={() => {
-            return context.actions.toggleIsDone(task.id);
+            // setToggle(true)
+             return context.actions.toggleIsDone(task.id);
+          
           }}
         >
           {task.done.toString()}
