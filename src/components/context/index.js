@@ -23,26 +23,30 @@ export function Provider(props) {
   };
   const toggleIsDone = id => {
     
-    let newTasks = tasks;
-    const i = newTasks.findIndex(t => t.id === id);
-    if (newTasks[i].done === false) {
-      newTasks[i].done = true;
-    } else {
-      newTasks[i].done = false;
-    }
-    console.log(id + " is toggled " + newTasks[i].done)
-    setTasks(newTasks);
+    // let newTasks = tasks;
+    // const i = newTasks.findIndex(t => t.id === id);
+    // if (newTasks[i].done === false) {
+    //   newTasks[i].done = true;
+    // } else {
+    //   newTasks[i].done = false;
+    // }
+    // console.log(id + " is toggled " + newTasks[i].done)
+    // setTasks(newTasks);
+
+    const i = tasks.findIndex((x) => (x.id === id))
+    let newTasks = tasks.slice();
+    let t = {...tasks[i], done: !tasks[i].done}
+    newTasks[i] = t;
+    setTasks(newTasks)
   };
   
-  const doneTasks = tasks.filter(task => task.done === true);
-  const todoTasks = tasks.filter(task => task.done === false);
+  // const doneTasks = tasks.filter(task => task.done === true);
+  // const todoTasks = tasks.filter(task => task.done === false);
 
   return (
     <TaskContext.Provider
       value={{
         tasks: tasks,
-        doneTasks: doneTasks,
-        todoTasks: todoTasks,
         actions: {
           addTask: handleAddTask,
           removeTask: handleRemoveTask,

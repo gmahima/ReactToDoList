@@ -29,17 +29,17 @@ export default function TasksByStatus({ match }) {
       <Route
         exact
         path={`${match.path}all`}
-        render={() => <TaskList tasks={"allTasks"} />}
+        render={() => <TaskList tasks={context.tasks} />}
       />
       <Route
         exact
         path={`${match.path}completed`}
-        render={() => <TaskList tasks={"doneTasks"} />}
+        render={() => <TaskList tasks={context.tasks.filter(task => task.done === true)} />}
       />
       <Route
         exact
         path={`${match.path}todo`}
-        render={() => <TaskList tasks={"todoTasks"} />}
+        render={() => <TaskList tasks={context.tasks.filter(task => task.done === true)} />}
       />
     </div>
   );
