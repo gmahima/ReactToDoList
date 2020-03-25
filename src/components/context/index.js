@@ -20,17 +20,15 @@ export function Provider(props) {
   const handleRemoveTask = id => {
     setTasks(tasks.filter(p => p.id !== id));
   };
-  const toggleIsDone = id => {
-    let newTasks = tasks;
-    const i = newTasks.findIndex(t => t.id === id);
-    if (newTasks[i].done === false) {
-      newTasks[i].done = true;
-    } else {
-      newTasks[i].done = false;
-    }
+  const toggleIsDone = (id, checked) => {
+    const i = tasks.findIndex(t => t.id === id);
+    let newTasks = tasks.slice();
+    newTasks[i].done = checked;
+    setTasks(newTasks)
 
-    setTasks(newTasks);
-  };
+
+
+}
   
   const doneTasks = tasks.filter(task => task.done === true);
   const todoTasks = tasks.filter(task => task.done === false);

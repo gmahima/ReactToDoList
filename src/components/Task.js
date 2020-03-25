@@ -5,6 +5,9 @@ import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 import TaskList from "./TaskList";
 
+
+
+
 const ToDo = styled.span`
   color: purple;
   font-size: 2em;
@@ -29,6 +32,11 @@ export default function Task({ id }) {
   const theme = {
     main: "pink"
   };
+  const handleChange = (e) =>{
+    console.log(e.target.value + " " + e.target.checked)
+    context.actions.toggleIsDone(e.target.value, e.target.checked)
+    console.log(context.anime)
+  }
     let task = null;
     for(let i = 0; i<context.tasks.length; i++)  {
         if(context.tasks[i].id === id) {
@@ -52,13 +60,14 @@ export default function Task({ id }) {
         >
           X
         </Button>
-        <Button
-          onClick={() => {
-            return context.actions.toggleIsDone(task.id);
-          }}
-        >
-          {task.done.toString()}
-        </Button>
+        <label>
+          <input type="checkbox"
+            value={task.id}
+            defaultChecked={task.done}
+            onChange={handleChange}
+          />
+          done
+        </label>
       </ThemeProvider>
     </div>
   );
