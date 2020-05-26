@@ -3,10 +3,6 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
-import TaskList from "./TaskList";
-
-
-
 
 const ToDo = styled.span`
   color: purple;
@@ -35,7 +31,7 @@ export default function Task({ id }) {
   const handleChange = (e) =>{
     console.log(e.target.value + " " + e.target.checked)
     context.actions.toggleIsDone(e.target.value, e.target.checked)
-    console.log(context.anime)
+    console.log(context.tasks)
   }
     let task = null;
     for(let i = 0; i<context.tasks.length; i++)  {
@@ -63,7 +59,7 @@ export default function Task({ id }) {
         <label>
           <input type="checkbox"
             value={task.id}
-            defaultChecked={task.done}
+            checked={task.checked}
             onChange={handleChange}
           />
           done
