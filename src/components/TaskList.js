@@ -1,58 +1,37 @@
-import React, {useContext, useState, useEffect} from "react";
+
+import React, {useContext} from "react";
 import Task from "./Task";
-//import { Div } from "./styled";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
-// import {RadioGroup, Radio} from 'react-radio-group'
 
 const Div = styled.div`
   padding: 2px;
   background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
   border-radius: 20px;
 `;
-export default function TaskList(props) {
+export default function TaskList() {
   const context = useContext(TaskContext);
-  let tasks = context.tasks;
-useEffect(() => {  
-  console.log(context)
-  switch(props.tasks) {
-    case "allTasks": tasks = context.tasks;
-    break;
-    case "todoTasks": tasks= context.todoTasks;
-    break;
-    case "doneTasks": tasks=context.doneTasks;
-    break;
-   default: tasks=[];
-    break;
 
-   }},[context])
-  // let doneTasks = tasks.filter(task => task.done === true);
-  // let todoTasks = tasks.filter(task => task.done === false);
-//  const [selected, setSelected] = useState("allTasks");
-// const radioChange = (event) =>{
-//   setSelected(event.target.value);
-// }
-//   switch(selected) {
-//     case "allTasks": tasks = context.tasks;
-//     break;
-//     case "todoTasks": tasks = context.tasks.filter(task => task.done === false);
-//     break;
-//     case "doneTasks": tasks=context.doneTasks.filter(task => task.done === true);;
-//     break;
-//    default: tasks=[];
-//     break;
+  let myTasks = context.tasks;
+    if(context.selected === 'all'){
+        myTasks = context.tasks;
+    }
+    else if(context.selected === 'done'){
+        myTasks = context.tasks.filter((a) => a.checked === true)
+    }
+    else {
+        myTasks = context.tasks.filter((a) => a.checked === false)
+    }
 
-//   }
-  // console.log("tasks:");
-  // console.log(tasks);
-  const taskList = tasks.map((task, index) => (
+  const taskList = myTasks.map((task) => (
 
     <Task id={task.id} key={task.id.toString()} />
   ));
   return (
 
     <div>
-      <Div tasks={tasks}>{taskList}</Div>
+      <Div tasks={taskList}>{taskList}</Div>
     </div>
+
   );
 }

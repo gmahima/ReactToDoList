@@ -3,7 +3,6 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
-import TaskList from "./TaskList";
 
 const ToDo = styled.span`
   color: purple;
@@ -30,7 +29,11 @@ export default function Task({ id }) {
   const theme = {
     main: "pink"
   };
-  // const [toggle, setToggle] = useState(false);
+  const handleChange = (e) =>{
+    console.log(e.target.value + " " + e.target.checked)
+    context.actions.toggleIsDone(e.target.value, e.target.checked)
+    console.log(context.tasks)
+  }
     let task = null;
 
  
@@ -67,15 +70,14 @@ export default function Task({ id }) {
         >
           X
         </Button>
-        <Button
-          onClick={() => {
-            // setToggle(true)
-             return context.actions.toggleIsDone(task.id);
-          
-          }}
-        >
-          {task.done.toString()}
-        </Button>
+        <label>
+          <input type="checkbox"
+            value={task.id}
+            checked={task.checked}
+            onChange={handleChange}
+          />
+          done
+        </label>
       </ThemeProvider>
     </div>
   );

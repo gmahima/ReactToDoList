@@ -4,9 +4,6 @@ import TaskList from "./TaskList";
 import { TaskContext } from "./context/index";
 export default function TasksByStatus({ match }) {
   const context = useContext(TaskContext);
-  //const allTasks = context.tasks;
-  // const [doneTasks, setDoneTasks] = useState([]);
-  // const [todoTasks, setTodoTasks] = useState([]);
   
   return (
     <div>

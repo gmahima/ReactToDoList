@@ -3,7 +3,8 @@ import React, { useState, createContext } from "react";
 export const TaskContext = createContext(null);
 export function Provider(props) {
   const [tasks, setTasks] = useState([]);
-  // const [prevTaskId, setPrevTaskId] = useState(0);
+  const options = [{title: 'all', id: 'all'}, {title: 'done', id: 'done'}, {title: 'todo', id:'todo'}]
+  const [selected, setSelected] = useState('all')
   const handleAddTask = name => {
     // setPrevTaskId(prevTaskId + 1);
     setTasks([
@@ -11,7 +12,7 @@ export function Provider(props) {
       {
         name,
         id: tasks.length.toString()+name,
-        done: false
+        checked: false
       }
     ]);
    
@@ -21,24 +22,24 @@ export function Provider(props) {
     console.log(id , " is removed")
     setTasks(tasks.filter(p => p.id !== id));
   };
-  const toggleIsDone = id => {
-    
-    // let newTasks = tasks;
-    // const i = newTasks.findIndex(t => t.id === id);
-    // if (newTasks[i].done === false) {
-    //   newTasks[i].done = true;
-    // } else {
-    //   newTasks[i].done = false;
-    // }
-    // console.log(id + " is toggled " + newTasks[i].done)
-    // setTasks(newTasks);
+  const toggleIsDone = (id, checked) => {
+    // const i = tasks.findIndex(t => t.id === id);
+    // let newTasks = tasks.slice();
+    // newTasks[i].done = checked;
+    // setTasks(newTasks)  
+    const n = tasks.slice()
+    for (let o of n) {
+      if(o.id=== id) {
+        o.checked= checked;
+      }
+    }
+    setTasks(n);
+}
+const handleSelect = (id) => {
+  setSelected(id)
 
-    const i = tasks.findIndex((x) => (x.id === id))
-    let newTasks = tasks.slice();
-    let t = {...tasks[i], done: !tasks[i].done}
-    newTasks[i] = t;
-    setTasks(newTasks)
-  };
+}
+
   
   // const doneTasks = tasks.filter(task => task.done === true);
   // const todoTasks = tasks.filter(task => task.done === false);
@@ -46,11 +47,15 @@ export function Provider(props) {
   return (
     <TaskContext.Provider
       value={{
-        tasks: tasks,
+        tasks,
+        options,
+        selected,
         actions: {
           addTask: handleAddTask,
           removeTask: handleRemoveTask,
-          toggleIsDone: toggleIsDone
+          toggleIsDone,
+          select: handleSelect
+          
         }
       }}
     >
@@ -58,4 +63,4 @@ export function Provider(props) {
     </TaskContext.Provider>
   );
 }
-//export { TaskContext };
+
