@@ -4,11 +4,11 @@ import Task from "./Task";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
 
-const Div = styled.div`
-  padding: 2px;
-  background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
-  border-radius: 20px;
-`;
+// const Div = styled.div`
+//   padding: 2px;
+//   background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
+//   border-radius: 20px;
+// `;
 export default function TaskList() {
   const context = useContext(TaskContext);
 
@@ -25,13 +25,24 @@ export default function TaskList() {
 
   const taskList = myTasks.map((task) => (
 
-    <Task id={task.id} key={task.id.toString()} />
+    <li><Task id={task.id} key={task.id.toString()} /></li>
   ));
   return (
 
-    <div>
-      <Div tasks={taskList}>{taskList}</Div>
-    </div>
+        <TaskUl>
+          {
+            taskList
+          }
+        </TaskUl>
+
 
   );
 }
+const TaskUl = styled.ul`
+list-style: none;
+display: flex;
+align-items: center;
+flex-direction: column;
+
+
+`

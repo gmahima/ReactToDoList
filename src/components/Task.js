@@ -6,7 +6,7 @@ import { TaskContext } from "./context/index";
 
 const TaskName = styled.span`
   color: purple;
-  font-size: 2em;
+  font-size: 1em;
 `;
 
 const CloseButton = styled.button`
@@ -18,12 +18,24 @@ text-decoration: none;
 font-size: 16px;
 margin: 4px 2px;
 cursor: pointer;
+&:hover {
+  border: 1px solid black;
+}
 
 `;
 
 const ToDoItem = styled.div`
 display: flex;
 justify-content: space-between;
+border-bottom: 1px solid black;
+background-color: pink;
+width: 800px;
+height: 50px;
+padding: 10px;
+align-items: center;
+&:hover {
+  border: 1px solid black;
+}
 `
 
 

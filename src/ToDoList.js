@@ -13,6 +13,7 @@ const Title = styled.h1`
 const Application = styled.div`
   font-family: sans-serif;
   text-align: center;
+
 `;
 export default function ToDoList({ match }) {
   return (
