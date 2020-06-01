@@ -1,31 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import AddTaskForm from "./components/AddTaskForm";
-import TasksByStatus from "./components/TasksByStatus";
 import TaskList from "./components/TaskList";
 import RadioList from "./components/RadioList";
 
-const TitleDiv = styled.div`
-  background-color: purple;
-  // width: 1000px;
-  height: 100px;
-  margin: 0px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around; 
+// const TitleDiv = styled.div`
+//   width: 1000px;
+//   height: 100px;
+//   margin: 0px;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around; 
 
   
-`;
+// `;
 const TitleText = styled.h1`
-  color: white;
+  color: #87fff9;
+  font-size: 3em;
 `
 const Application = styled.div`
-  padding: 0px;
-  margin: 0px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  // align-items: center;
+  align-items: center;
   font-family: sans-serif;
   text-align: center;
   background-color: black;
@@ -37,7 +35,7 @@ const Application = styled.div`
 export default function ToDoList() {
   return (
     <Application className="App">
-      <TitleDiv><TitleText>My To Do List</TitleText></TitleDiv>
+      <TitleText>My To Do List</TitleText>
       <RadioList />
       <TaskList />
       <AddTaskForm />

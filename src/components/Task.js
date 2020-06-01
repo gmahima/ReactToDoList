@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 
 const TaskName = styled.span`
-  color: purple;
+  color: grey;
   font-size: 1em;
 `;
 
@@ -28,7 +28,7 @@ const ToDoItem = styled.div`
 display: flex;
 justify-content: space-between;
 border-bottom: 1px solid black;
-background-color: pink;
+background-color: white;
 width: 400px;
 height: 50px;
 padding: 10px;
@@ -47,7 +47,7 @@ CloseButton.defaultProps = {
 export default function Task({ id }) {
   const context = useContext(TaskContext);
   const theme = {
-    main: "pink"
+    main: "white"
   };
   const handleChange = (e) =>{
     console.log(e.target.value + " " + e.target.checked)

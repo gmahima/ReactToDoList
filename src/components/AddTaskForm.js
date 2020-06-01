@@ -9,10 +9,10 @@ const TextInput = styled.input`
   display: inline-block;
   box-sizing: border-box;
   ::placeholder {
-    color: pink;
+    color: #6c6c6d;
   }
-  background-color: purple;
-  color: pink;
+  background-color: white;
+  color: #6c6c6d;
 `;
 const Submit = styled(TextInput)`
   padding: 1px 2px;
