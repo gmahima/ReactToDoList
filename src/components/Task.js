@@ -1,30 +1,38 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext} from "react";
 //import { Consumer } from "./context/index";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 
-const ToDo = styled.span`
+const TaskName = styled.span`
   color: purple;
   font-size: 2em;
 `;
 
-const Button = styled.button`
-  color: ${props => props.theme.main};
-  background: purple;
-  padding: 1em;
-  margin: 10px;
-  border-radius: 20px;
-  display: inline;
+const CloseButton = styled.button`
+background-color: ${props => props.theme.main};
+display: inline;
+border: none;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+
 `;
 
-Button.defaultProps = {
+const ToDoItem = styled.div`
+display: flex;
+justify-content: space-between;
+`
+
+
+CloseButton.defaultProps = {
   theme: {
     main: "white"
   }
 };
 export default function Task({ id }) {
-  const isInitialMount = useRef(true);
   const context = useContext(TaskContext);
   const theme = {
     main: "pink"
@@ -59,17 +67,8 @@ export default function Task({ id }) {
   }
   console.log("rerendered")
   return (
-    <div>
-      <ToDo>{task.name}</ToDo>
-      {console.log(task.name)}
+    <ToDoItem>
       <ThemeProvider theme={theme}>
-        <Button
-          onClick={() => {
-            return context.actions.removeTask(task.id);
-          }}
-        >
-          X
-        </Button>
         <label>
           <input type="checkbox"
             value={task.id}
@@ -78,7 +77,17 @@ export default function Task({ id }) {
           />
           done
         </label>
+        <TaskName>{task.name}</TaskName>
+        {console.log(task.name)}
+        <CloseButton
+          onClick={() => {
+            return context.actions.removeTask(task.id);
+          }}
+        >
+          &times;
+        </CloseButton>
+        
       </ThemeProvider>
-    </div>
+    </ToDoItem>
   );
 }
