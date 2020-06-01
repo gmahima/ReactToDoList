@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { TaskContext } from "./context/index";
 import styled from "styled-components";
 const TextInput = styled.input`
-  width: 30%;
+  width: 700px;
+  height: 30px;
   padding: 12px 20px;
   margin: 8px 3px;
   display: inline-block;
@@ -10,13 +11,14 @@ const TextInput = styled.input`
   ::placeholder {
     color: pink;
   }
-  border-radius: 20px;
   background-color: purple;
   color: pink;
 `;
 const Submit = styled(TextInput)`
   padding: 1px 2px;
   margin: 8px 3px;
+  width: 70px;
+
 `;
 export default function AddTaskForm() {
   const taskInput = React.createRef();

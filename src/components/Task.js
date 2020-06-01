@@ -29,7 +29,7 @@ display: flex;
 justify-content: space-between;
 border-bottom: 1px solid black;
 background-color: pink;
-width: 800px;
+width: 400px;
 height: 50px;
 padding: 10px;
 align-items: center;
