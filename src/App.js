@@ -6,8 +6,7 @@ import RadioList from "./components/RadioList";
 
 const TitleText = styled.h1`
   color: #87fff9;
-  font-size: 3em;
-  width: 100%;
+  font-size: 6em;
 `
 
 const Application = styled.div`
@@ -16,9 +15,9 @@ const Application = styled.div`
   width: 100%;
   height: 100vh;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
   align-content: center;
+  background-color: black;
+  display: grid;
 `;
 export default function ToDoList() {
   return (

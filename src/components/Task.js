@@ -29,9 +29,8 @@ display: flex;
 justify-content: space-between;
 border-bottom: 1px solid black;
 background-color: white;
-width: 400px;
-height: 50px;
-padding: 10px;
+width: 70%;
+
 align-items: center;
 &:hover {
   border: 1px solid black;

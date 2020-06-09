@@ -5,7 +5,7 @@ import { TaskContext } from "./context/index";
 
 const RadioLabel = styled.label`
 color: white;
-margin-right: 25px;
+margin-right: 0.5em;
 cursor: pointer;
 
 `

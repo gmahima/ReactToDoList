@@ -40,9 +40,8 @@ export default function TaskList() {
 }
 const TaskUl = styled.ul`
 list-style: none;
-display: flex;
 align-items: center;
-flex-direction: column;
+width: 70%;
 
 
 `
