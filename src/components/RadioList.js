@@ -18,7 +18,11 @@ border: 1px solid white;
 cursor: pointer;
 padding: 1em;
 background: ${({checked}) =>  (checked? 'white': 'none')};
-color: ${({checked}) =>  (checked? 'grey': 'white')};
+color: ${({checked}) =>  (checked? '#707070': 'white')};
+&:hover {
+  background-color: ${({checked}) =>  (checked? 'white': '#707070')};
+  color: ${({checked}) =>  (checked? '#707070': 'white')};
+}
 `
 
 const RadioInput = styled.input`

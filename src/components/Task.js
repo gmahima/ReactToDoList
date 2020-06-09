@@ -7,14 +7,13 @@ import { TaskContext } from "./context/index";
 const TaskName = styled.span`
   display: grid;
   align-content: center;
-  color: grey;
+  color: #707070;
   font-size: 1em;
   text-decoration: ${({checked}) =>  (checked? 'line-through': 'none')};
-  text-decoration: ;
 `;
 
 const CloseButton = styled.button`
-color: grey;
+color: #707070;
 background: none;
 border: none;
 text-align: center;
@@ -38,7 +37,7 @@ display: grid;
 grid-template-columns: auto 1fr auto;
 align-items: stretch;
 &:hover {
-  background-color: #87fff9;
+  background-color: #F0F0F0;
 }
 `
 
@@ -47,7 +46,7 @@ display: grid;
 align-content: center;
 justify-content: space-around;
 padding: 20px;
-color: grey;
+color: #707070;
 cursor: pointer;
 grid-template-columns: 1fr;
 &:hover {
@@ -55,7 +54,7 @@ grid-template-columns: 1fr;
 }
 `
 const CheckInput = styled.input`
-color: grey;
+color: #707070;
 background: none;
 display: none;
 
