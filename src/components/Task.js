@@ -9,6 +9,8 @@ const TaskName = styled.span`
   align-content: center;
   color: grey;
   font-size: 1em;
+  text-decoration: ${({checked}) =>  (checked? 'line-through': 'none')};
+  text-decoration: ;
 `;
 
 const CloseButton = styled.button`
@@ -47,7 +49,7 @@ justify-content: space-around;
 padding: 20px;
 color: grey;
 cursor: pointer;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr;
 &:hover {
   border: 6px solid black;
 }
@@ -55,6 +57,7 @@ grid-template-columns: 1fr 1fr;
 const CheckInput = styled.input`
 color: grey;
 background: none;
+display: none;
 
 `
 export default function Task({ id }) {
@@ -101,7 +104,7 @@ export default function Task({ id }) {
           />
           done
         </CheckLabel>
-        <TaskName>{task.name}</TaskName>
+        <TaskName checked={task.checked}>{task.name}</TaskName>
         {console.log(task.name)}
         <CloseButton
           onClick={() => {
