@@ -12,7 +12,7 @@ cursor: pointer;
 
 const RadioInput = styled.input`
 cursor: pointer;
-background-color: #000;
+background: none;
 `
 
 export default function RadioList() {

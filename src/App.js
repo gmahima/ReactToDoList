@@ -1,10 +1,32 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import ToDoList from "./ToDoList";
-export const App = () => (
-  <BrowserRouter>
-    <div className="container">
-      <Route path="/" component={ToDoList} />
-    </div>
-  </BrowserRouter>
-);
+import styled from "styled-components";
+import AddTaskForm from "./components/AddTaskForm";
+import TaskList from "./components/TaskList";
+import RadioList from "./components/RadioList";
+
+const TitleText = styled.h1`
+  color: #87fff9;
+  font-size: 3em;
+  width: 100%;
+`
+
+const Application = styled.div`
+  font-family: sans-serif;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+`;
+export default function ToDoList() {
+  return (
+    <Application className="App">
+      <TitleText>My To Do List</TitleText>
+      <RadioList />
+      <TaskList />
+      <AddTaskForm />
+    </Application>
+  );
+}
