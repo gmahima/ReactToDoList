@@ -7,12 +7,13 @@ const RadioLabel = styled.label`
 color: white;
 margin-right: 0.5em;
 cursor: pointer;
-
+text-decoration: ${({checked}) =>  (checked? 'underline': 'none')};
 `
 
 const RadioInput = styled.input`
 cursor: pointer;
 background: none;
+display: none;
 `
 
 export default function RadioList() {
@@ -27,7 +28,7 @@ const radioChange = (e) =>{
       {context.options.map((o) => {
 
         return(
-        <RadioLabel>
+        <RadioLabel checked={context.selected === o.id}>
           <RadioInput
           type='radio'
           value={o.id}

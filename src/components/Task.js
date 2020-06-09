@@ -96,6 +96,16 @@ export default function Task({ id }) {
     
       <ThemeProvider theme={theme}>
         <ToDoItem>
+        <CloseButton
+          onClick={() => {
+            return context.actions.removeTask(task.id);
+          }}
+        >
+          &times;
+        </CloseButton>
+        <TaskName checked={task.checked}>{task.name}</TaskName>
+        {console.log(task.name)}
+
         <CheckLabel>
           <CheckInput type="checkbox"
             value={task.id}
@@ -104,15 +114,6 @@ export default function Task({ id }) {
           />
           done
         </CheckLabel>
-        <TaskName checked={task.checked}>{task.name}</TaskName>
-        {console.log(task.name)}
-        <CloseButton
-          onClick={() => {
-            return context.actions.removeTask(task.id);
-          }}
-        >
-          &times;
-        </CloseButton>
         </ToDoItem>
       </ThemeProvider>
     

@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react";
 
 export const TaskContext = createContext(null);
 export function Provider(props) {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([{name: 'shopping', id:'1shopping', checked: false}, {name: 'anime binge', id:'2anime', checked: false}, {name: 'eat ice cream', id:'3eaticecream', checked: false}]);
   const options = [{title: 'all', id: 'all'}, {title: 'done', id: 'done'}, {title: 'todo', id:'todo'}]
   const [selected, setSelected] = useState('all')
   const handleAddTask = name => {
