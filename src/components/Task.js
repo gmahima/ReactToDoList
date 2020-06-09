@@ -25,11 +25,9 @@ cursor: pointer;
 `;
 
 const ToDoItem = styled.div`
-display: flex;
 justify-content: space-between;
 border-bottom: 1px solid black;
 background-color: white;
-width: 70%;
 
 align-items: center;
 &:hover {

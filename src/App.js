@@ -19,13 +19,22 @@ const Application = styled.div`
   background-color: black;
   display: grid;
 `;
+const Tasks = styled.div`
+  display: grid;
+  grid-template-columns: 0.5fr;
+  justify-content: center;
+  grid-gap: 40px;
+
+`
 export default function ToDoList() {
   return (
     <Application className="App">
       <TitleText>My To Do List</TitleText>
       <RadioList />
-      <TaskList />
-      <AddTaskForm />
+      <Tasks>
+        <TaskList />
+        <AddTaskForm />
+      </Tasks>
     </Application>
   );
 }

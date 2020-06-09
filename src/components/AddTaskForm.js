@@ -13,7 +13,7 @@ const TextInput = styled.input`
 const TaskForm = styled.form`
 text-align: center;
 display: grid;
-grid-template-columns: 0.5fr auto;
+grid-template-columns: 1fr auto;
 justify-content: center;
 grid-gap: 20px;
 grid-auto-rows: 50px;
