@@ -3,11 +3,22 @@ import React, {useContext} from "react";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
 
+const RadioGroup = styled.div`
+
+display: grid;
+grid-template-columns: 6em 6em 6em;
+align-content: center;
+justify-content: center;
+grid-gap: 20px;
+
+`
+
 const RadioLabel = styled.label`
-color: white;
-margin-right: 0.5em;
+border: 1px solid white;
 cursor: pointer;
-text-decoration: ${({checked}) =>  (checked? 'underline': 'none')};
+padding: 1em;
+background: ${({checked}) =>  (checked? 'white': 'none')};
+color: ${({checked}) =>  (checked? 'grey': 'white')};
 `
 
 const RadioInput = styled.input`
@@ -24,7 +35,7 @@ const radioChange = (e) =>{
    context.actions.select(e.target.value);
 }
   return (
-    <div>
+    <RadioGroup>
       {context.options.map((o) => {
 
         return(
@@ -41,6 +52,6 @@ const radioChange = (e) =>{
       })}
 
 
-    </div>
+    </RadioGroup>
   );
 }

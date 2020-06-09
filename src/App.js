@@ -5,7 +5,7 @@ import TaskList from "./components/TaskList";
 import RadioList from "./components/RadioList";
 
 const TitleText = styled.h1`
-  color: #87fff9;
+  color: white;
   font-size: 3em;
 `
 
@@ -18,6 +18,7 @@ const Application = styled.div`
   align-content: start;
   background-color: black;
   display: grid;
+  grid-gap: 50px;
 `;
 const Tasks = styled.div`
   display: grid;
