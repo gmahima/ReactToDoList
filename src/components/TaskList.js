@@ -9,6 +9,9 @@ import { TaskContext } from "./context/index";
 //   background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
 //   border-radius: 20px;
 // `;
+const Li = styled.li`
+border-bottom: 1px solid black;
+`
 export default function TaskList() {
   const context = useContext(TaskContext);
 
@@ -25,7 +28,7 @@ export default function TaskList() {
 
   const taskList = myTasks.map((task) => (
 
-    <li><Task id={task.id} key={task.id.toString()} /></li>
+    <Li><Task id={task.id} key={task.id.toString()} /></Li>
   ));
   return (
 
@@ -42,7 +45,7 @@ const TaskUl = styled.ul`
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
-align-items: center;
+grid-auto-rows: 70px;
 margin: 0;
 padding: 0;
 

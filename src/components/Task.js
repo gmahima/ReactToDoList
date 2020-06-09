@@ -5,42 +5,58 @@ import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 
 const TaskName = styled.span`
+  display: grid;
+  align-content: center;
   color: grey;
   font-size: 1em;
 `;
 
 const CloseButton = styled.button`
-background-color: ${props => props.theme.main};
-display: inline;
+color: grey;
+background: none;
 border: none;
 text-align: center;
 text-decoration: none;
 font-size: 16px;
-margin: 4px 2px;
 cursor: pointer;
+align-self: stretch;
+justify-self: stretch;
+padding: 0 30px;
+
 &:hover {
-  border: 1px solid black;
+  border: 6px solid black;
 }
 
 `;
 
 const ToDoItem = styled.div`
-justify-content: space-between;
-border-bottom: 1px solid black;
+height: 100%;
 background-color: white;
-
-align-items: center;
+display: grid;
+grid-template-columns: auto 1fr auto;
+align-items: stretch;
 &:hover {
-  border: 1px solid black;
+  background-color: #87fff9;
 }
 `
 
+const CheckLabel = styled.label`
+display: grid;
+align-content: center;
+justify-content: space-around;
+padding: 20px;
+color: grey;
+cursor: pointer;
+grid-template-columns: 1fr 1fr;
+&:hover {
+  border: 6px solid black;
+}
+`
+const CheckInput = styled.input`
+color: grey;
+background: none;
 
-CloseButton.defaultProps = {
-  theme: {
-    main: "white"
-  }
-};
+`
 export default function Task({ id }) {
   const context = useContext(TaskContext);
   const theme = {
@@ -71,21 +87,20 @@ export default function Task({ id }) {
 
   
   if(task===null) {
-    console.log("hi")
     return null;
   }
-  console.log("rerendered")
   return (
-    <ToDoItem>
+    
       <ThemeProvider theme={theme}>
-        <label>
-          <input type="checkbox"
+        <ToDoItem>
+        <CheckLabel>
+          <CheckInput type="checkbox"
             value={task.id}
             checked={task.checked}
             onChange={handleChange}
           />
           done
-        </label>
+        </CheckLabel>
         <TaskName>{task.name}</TaskName>
         {console.log(task.name)}
         <CloseButton
@@ -95,8 +110,8 @@ export default function Task({ id }) {
         >
           &times;
         </CloseButton>
-        
+        </ToDoItem>
       </ThemeProvider>
-    </ToDoItem>
+    
   );
 }
