@@ -13,9 +13,9 @@ const TaskName = styled.span`
 `;
 
 const CloseButton = styled.button`
-color: #707070;
-background: none;
-border: none;
+color: white;
+background: black;
+border: 1px solid white;
 text-align: center;
 text-decoration: none;
 font-size: 16px;
@@ -25,7 +25,8 @@ justify-self: stretch;
 padding: 0 30px;
 
 &:hover {
-  border: 6px solid black;
+  background: #707070;
+
 }
 
 `;
@@ -42,15 +43,18 @@ align-items: stretch;
 `
 
 const CheckLabel = styled.label`
+background:black;
+color:white;
+border: 1px solid white;
 display: grid;
 align-content: center;
 justify-content: space-around;
 padding: 20px;
-color: #707070;
 cursor: pointer;
 grid-template-columns: 1fr;
 &:hover {
-  border: 6px solid black;
+  background: #707070;
+
 }
 `
 const CheckInput = styled.input`
@@ -105,13 +109,13 @@ export default function Task({ id }) {
         <TaskName checked={task.checked}>{task.name}</TaskName>
         {console.log(task.name)}
 
-        <CheckLabel>
+        <CheckLabel checked={task.checked}>
           <CheckInput type="checkbox"
             value={task.id}
             checked={task.checked}
             onChange={handleChange}
           />
-          done
+          {task.checked? 'undo': 'done'}
         </CheckLabel>
         </ToDoItem>
       </ThemeProvider>
