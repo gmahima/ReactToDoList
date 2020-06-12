@@ -2,26 +2,41 @@ import React, { useContext } from "react";
 import { TaskContext } from "./context/index";
 import styled from "styled-components";
 const TextInput = styled.input`
-  padding: 20px;
+  padding: 1em;
   box-sizing: border-box;
   ::placeholder {
     color: #6c6c6d;
   }
   background-color: white;
   color: #6c6c6d;
+  @media(max-width: 400px) {
+    padding:0.5em;
+    font-size: 0.5em;
+    
+  }
 `;
 const TaskForm = styled.form`
 text-align: center;
 display: grid;
 grid-template-columns: 1fr auto;
 justify-content: center;
-grid-gap: 20px;
-grid-auto-rows: 50px;
+grid-gap: 0.5em;
+grid-auto-rows: 3em;
+align-content: center;
+@media(max-width: 400px) {
+  grid-auto-rows: 2em;
+  
+}
 
 `
 const Submit = styled(TextInput)`
 text-align: center;
-padding: 15px;
+padding: 1em;
+@media(max-width: 400px) {
+  padding:0.5em;
+  font-size: 0.5em;
+  
+}
   
 
 `;

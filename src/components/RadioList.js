@@ -9,7 +9,12 @@ display: grid;
 grid-template-columns: 6em 6em 6em;
 align-content: center;
 justify-content: center;
-grid-gap: 20px;
+grid-gap: 1em;
+@media(max-width: 400px) {
+  grid-template-columns: 3em 3em 3em;
+
+  
+}
 
 `
 
@@ -22,6 +27,11 @@ color: ${({checked}) =>  (checked? '#707070': 'white')};
 &:hover {
   background-color: ${({checked}) =>  (checked? 'white': '#707070')};
   color: ${({checked}) =>  (checked? '#707070': 'white')};
+}
+@media(max-width: 400px) {
+  padding:0.5em;
+  font-size: 0.5em;
+  
 }
 `
 

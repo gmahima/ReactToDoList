@@ -10,6 +10,10 @@ const TaskName = styled.span`
   color: #707070;
   font-size: 1em;
   text-decoration: ${({checked}) =>  (checked? 'line-through': 'none')};
+  @media(max-width: 400px) {
+    font-size: 0.7em;
+    
+  }
 `;
 
 const CloseButton = styled.button`
@@ -18,15 +22,20 @@ background: black;
 border: 1px solid white;
 text-align: center;
 text-decoration: none;
-font-size: 16px;
+font-size: 1em;
 cursor: pointer;
 align-self: stretch;
 justify-self: stretch;
-padding: 0 30px;
+padding: 0 2em;
 
 &:hover {
   background: #707070;
 
+}
+@media(max-width: 400px) {
+  padding:0 1em;
+  font-size: 0.5em;
+  
 }
 
 `;
@@ -49,12 +58,17 @@ border: 1px solid white;
 display: grid;
 align-content: center;
 justify-content: space-around;
-padding: 20px;
+padding: 1em;
 cursor: pointer;
 grid-template-columns: 1fr;
 &:hover {
   background: #707070;
 
+}
+@media(max-width: 400px) {
+  padding:0.5em;
+  font-size: 0.5em;
+  
 }
 `
 const CheckInput = styled.input`

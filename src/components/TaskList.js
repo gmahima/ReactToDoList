@@ -45,9 +45,12 @@ const TaskUl = styled.ul`
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
-grid-auto-rows: 70px;
+grid-auto-rows: 4em;
 margin: 0;
 padding: 0;
-
+@media(max-width: 400px) {
+  
+  grid-auto-rows: 2em;
+}
 
 `
