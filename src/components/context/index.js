@@ -3,8 +3,6 @@ import React, { useState, createContext } from "react";
 export const TaskContext = createContext(null);
 export function Provider(props) {
   const [tasks, setTasks] = useState([{name: 'shopping', id:'1shopping', checked: false}, {name: 'anime binge', id:'2anime', checked: false}, {name: 'eat ice cream', id:'3eaticecream', checked: false}]);
-  const options = [{title: 'all', id: 'all'}, {title: 'done', id: 'done'}, {title: 'todo', id:'todo'}]
-  const [selected, setSelected] = useState('all')
   const handleAddTask = name => {
     // setPrevTaskId(prevTaskId + 1);
     setTasks([
@@ -35,10 +33,6 @@ export function Provider(props) {
     }
     setTasks(n);
 }
-const handleSelect = (id) => {
-  setSelected(id)
-
-}
 
   
   // const doneTasks = tasks.filter(task => task.done === true);
@@ -48,13 +42,12 @@ const handleSelect = (id) => {
     <TaskContext.Provider
       value={{
         tasks,
-        options,
-        selected,
+
         actions: {
           addTask: handleAddTask,
           removeTask: handleRemoveTask,
           toggleIsDone,
-          select: handleSelect
+
           
         }
       }}

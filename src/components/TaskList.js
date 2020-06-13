@@ -12,14 +12,14 @@ import { TaskContext } from "./context/index";
 const Li = styled.li`
 border-bottom: 1px solid black;
 `
-export default function TaskList() {
+export default function TaskList({show}) {
   const context = useContext(TaskContext);
 
   let myTasks = context.tasks;
-    if(context.selected === 'all'){
+    if(show === 'all'){
         myTasks = context.tasks;
     }
-    else if(context.selected === 'done'){
+    else if(show === 'done'){
         myTasks = context.tasks.filter((a) => a.checked === true)
     }
     else {

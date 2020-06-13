@@ -3,7 +3,7 @@ import styled from "styled-components";
 import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList";
 import RadioList from "./components/RadioList";
-
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 const TitleText = styled.h1`
   color: white;
   font-size: 3em;
@@ -37,15 +37,24 @@ const Tasks = styled.div`
   }
 
 `
-export default function ToDoList() {
+ export default function ToDoList() {
   return (
-    <Application className="App">
-      <TitleText>My To Do List</TitleText>
-      <RadioList />
-      <Tasks>
-        <AddTaskForm />
-        <TaskList />   
-      </Tasks>
-    </Application>
+    <Router>
+      <Route path="/">
+        <Application className="App">
+          <TitleText>My To Do List</TitleText>
+          <RadioList />
+          <Tasks>
+            <AddTaskForm />
+            <Switch>
+              <Route exact path='/' render={() => (<Redirect to='/all' />)}/>
+              <Route path='/all'  render={() => (<TaskList show='all' />)}/>
+              <Route path='/done' render={() => (<TaskList show='done' />)}/>
+              <Route path='/todo' render={() => (<TaskList show='todo' />)}/>
+            </Switch> 
+          </Tasks>
+        </Application>
+      </Route>
+    </Router>
   );
 }

@@ -2,6 +2,7 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
+import {Route, Switch, Redirect, NavLink} from 'react-router-dom'
 
 const RadioGroup = styled.div`
 
@@ -18,15 +19,37 @@ grid-gap: 1em;
 
 `
 
-const RadioLabel = styled.label`
+// const RadioLabel = styled.NavLink`
+// border: 1px solid white;
+// cursor: pointer;
+// padding: 1em;
+// background: ${({checked}) =>  (checked? 'white': 'none')};
+// color: ${({checked}) =>  (checked? '#707070': 'white')};
+// &:hover {
+//   background-color: ${({checked}) =>  (checked? 'white': '#707070')};
+//   color: ${({checked}) =>  (checked? '#707070': 'white')};
+// }
+// @media(max-width: 400px) {
+//   padding:0.5em;
+//   font-size: 0.5em;
+  
+// }
+// `
+const SNavLink = styled(NavLink)`
+display: block;
+text-decoration: none;
+color: white;
 border: 1px solid white;
 cursor: pointer;
 padding: 1em;
-background: ${({checked}) =>  (checked? 'white': 'none')};
-color: ${({checked}) =>  (checked? '#707070': 'white')};
 &:hover {
-  background-color: ${({checked}) =>  (checked? 'white': '#707070')};
-  color: ${({checked}) =>  (checked? '#707070': 'white')};
+  background-color:#707070;
+  color:white;
+}
+&.active {
+  background-color: white;
+  color:#707070;
+
 }
 @media(max-width: 400px) {
   padding:0.5em;
@@ -34,13 +57,6 @@ color: ${({checked}) =>  (checked? '#707070': 'white')};
   
 }
 `
-
-const RadioInput = styled.input`
-cursor: pointer;
-background: none;
-display: none;
-`
-
 export default function RadioList() {
   const context = useContext(TaskContext);
 
@@ -50,22 +66,9 @@ const radioChange = (e) =>{
 }
   return (
     <RadioGroup>
-      {context.options.map((o) => {
-
-        return(
-        <RadioLabel checked={context.selected === o.id}>
-          <RadioInput
-          type='radio'
-          value={o.id}
-          checked={context.selected === o.id}
-          onChange={radioChange}
-          />{o.title}
-        </RadioLabel>
-        )
-
-      })}
-
-
-    </RadioGroup>
+          <SNavLink to='/all' activeClassName='active'>all</SNavLink>
+          <SNavLink to='/done'>done</SNavLink>
+          <SNavLink to='/todo'>todo</SNavLink>
+      </RadioGroup>
   );
 }
