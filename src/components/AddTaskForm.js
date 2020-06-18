@@ -36,6 +36,11 @@ cursor: pointer;
 &:hover {
   background-color: #F0F0F0;
 }
+&:active {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
 @media(max-width: 400px) {
   padding:0.5em;
   font-size: 0.5em;

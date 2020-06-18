@@ -45,7 +45,7 @@ const TaskUl = styled.ul`
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
-grid-auto-rows: 4em;
+grid-auto-rows: 1fr;
 margin: 0;
 padding: 0;
 @media(max-width: 400px) {
