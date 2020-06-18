@@ -21,7 +21,7 @@ display: grid;
 grid-template-columns: 1fr auto;
 justify-content: center;
 grid-gap: 0.5em;
-grid-auto-rows: 3em;
+grid-auto-rows: 4em;
 align-content: center;
 @media(max-width: 400px) {
   grid-auto-rows: 2em;
@@ -61,8 +61,8 @@ export default function AddTaskForm() {
   };
   return (
     <TaskForm onSubmit={handleSubmit}>
-      <TextInput type="text" ref={taskInput} placeholder="enter task" />
-      <Submit type="submit" value="add task" />
+      <input type="text" ref={taskInput} placeholder="enter task" className="text-xs p-2 rounded bg-lilac-100 placeholder-gray-600 box-border sm:text-base sm:p-4 text-black shadow-inner"/>
+      <input type="submit" value="add task" className="text-xs p-2 rounded bg-lilac-100 box-border sm:px-10 sm:text-base text-black shadow-inner text-center hover:bg-lilac-200"/>
     </TaskForm>
   );
 }

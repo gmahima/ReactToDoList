@@ -1,13 +1,13 @@
 
-import React, {useContext} from "react";
+import React from "react";
 import styled from "styled-components";
-import { TaskContext } from "./context/index";
-import {Route, Switch, Redirect, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
-const RadioGroup = styled.div`
+
+const NavList = styled.div`
 
 display: grid;
-grid-template-columns: 6em 6em 6em;
+grid-template-columns: 9em 9em 9em;
 align-content: center;
 justify-content: center;
 grid-gap: 1em;
@@ -35,40 +35,34 @@ grid-gap: 1em;
   
 // }
 // `
-const SNavLink = styled(NavLink)`
-display: block;
-text-decoration: none;
-color: white;
-border: 1px solid white;
-cursor: pointer;
-padding: 1em;
-&:hover {
-  background-color:#707070;
-  color:white;
-}
-&.active {
-  background-color: white;
-  color:#707070;
+// const SNavLink = styled(NavLink)`
+// display: block;
+// text-decoration: none;
+// color: white;
+// border: 1px solid white;
+// cursor: pointer;
+// padding: 1em;
+// &:hover {
+//   background-color:#707070;
+//   color:white;
+// }
+// &.active {
+//   background-color: white;
+//   color:#707070;
 
-}
-@media(max-width: 400px) {
-  padding:0.5em;
-  font-size: 0.5em;
+// }
+// @media(max-width: 400px) {
+//   padding:0.5em;
+//   font-size: 0.5em;
   
-}
-`
+// }
+// `
 export default function RadioList() {
-  const context = useContext(TaskContext);
-
-const radioChange = (e) =>{
-    console.log("radio:" + e.target.value)
-   context.actions.select(e.target.value);
-}
   return (
-    <RadioGroup>
-          <SNavLink to='/all' activeClassName='active'>all</SNavLink>
-          <SNavLink to='/done'>done</SNavLink>
-          <SNavLink to='/todo'>todo</SNavLink>
-      </RadioGroup>
+    <NavList>
+          <NavLink to='/all' className="bg-lemon rounded hover:bg-opacity-50 text-black shadow-inner  text-2xl" activeClassName='active'>all</NavLink>
+          <NavLink to='/done' className="bg-lemon rounded hover:bg-opacity-50 text-black shadow-inner text-2xl" activeClassName='active'>done</NavLink>
+          <NavLink to='/todo' className="bg-lemon rounded hover:bg-opacity-50 text-black sshadow-inner text-2xl" activeClassName='active'>todo</NavLink>
+      </NavList>
   );
 }

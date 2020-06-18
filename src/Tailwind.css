@@ -4,6 +4,13 @@
 
 @tailwind utilities;
 
+  .active {
+    @apply bg-pink;
+  }
+  .active:hover {
+    @apply bg-pink;
+    cursor:default;
+  }
 body {
     margin: 0;
     padding: 0;
