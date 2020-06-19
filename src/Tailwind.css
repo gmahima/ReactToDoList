@@ -5,10 +5,10 @@
 @tailwind utilities;
 
   .active {
-    @apply bg-pink;
+    @apply bg-lemon-200;
   }
   .active:hover {
-    @apply bg-pink;
+    @apply bg-lemon-200;
     cursor:default;
   }
 body {

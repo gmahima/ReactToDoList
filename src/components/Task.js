@@ -5,9 +5,10 @@ import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 
 const TaskName = styled.span`
+  margin: 0 0.05em;
   display: grid;
   align-content: center;
-  color: #707070;
+  font-weight: bold;
   font-size: 1em;
   text-decoration: ${({checked}) =>  (checked? 'line-through': 'none')};
   @media(max-width: 400px) {
@@ -17,54 +18,25 @@ const TaskName = styled.span`
 `;
 
 const CloseButton = styled.button`
-color: white;
-background: black;
-border: 1px solid white;
-text-align: center;
-text-decoration: none;
-font-size: 1em;
 cursor: pointer;
 align-self: stretch;
 justify-self: stretch;
-padding: 0 2em;
-
-&:hover {
-  background: #707070;
-
-}
-@media(max-width: 400px) {
-  padding:0 1em;
-  font-size: 0.5em;
-  
-}
-
 `;
 
 const ToDoItem = styled.div`
 height: 100%;
-background-color: white;
 display: grid;
 grid-template-columns: auto 1fr auto;
 align-items: stretch;
-&:hover {
-  background-color: #F0F0F0;
-}
 `
 
 const CheckLabel = styled.label`
-background:black;
-color:white;
-border: 1px solid white;
 display: grid;
 align-content: center;
 justify-content: space-around;
 padding: 1em;
 cursor: pointer;
 grid-template-columns: 1fr;
-&:hover {
-  background: #707070;
-
-}
 @media(max-width: 400px) {
   padding:0.5em;
   font-size: 0.5em;
@@ -111,19 +83,18 @@ export default function Task({ id }) {
   }
   return (
     
-      <ThemeProvider theme={theme}>
-        <ToDoItem>
-        <CloseButton
+        <ToDoItem className="bg-pink hover:bg-opacity-75 rounded px-1 py-1">
+        <CloseButton className="text-center rounded sm:text-base text-xs py-0 sm:px-8 px-4 bg-lemon-300 text-gray-600 hover:bg-opacity-75"
           onClick={() => {
             return context.actions.removeTask(task.id);
           }}
         >
           &times;
         </CloseButton>
-        <TaskName checked={task.checked}>{task.name}</TaskName>
+        <TaskName checked={task.checked} className="text-gray-700">{task.name}</TaskName>
         {console.log(task.name)}
 
-        <CheckLabel checked={task.checked}>
+        <CheckLabel checked={task.checked} className="text-center rounded sm:text-base text-xs py-0 sm:p-4 p-2 bg-cream text-gray-600 hover:bg-opacity-75">
           <CheckInput type="checkbox"
             value={task.id}
             checked={task.checked}
@@ -132,7 +103,7 @@ export default function Task({ id }) {
           {task.checked? 'undo': 'done'}
         </CheckLabel>
         </ToDoItem>
-      </ThemeProvider>
+
     
   );
 }

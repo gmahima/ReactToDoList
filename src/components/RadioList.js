@@ -60,9 +60,9 @@ grid-gap: 1em;
 export default function RadioList() {
   return (
     <NavList>
-          <NavLink to='/all' className="bg-lemon rounded hover:bg-opacity-50 text-black shadow-inner  text-2xl" activeClassName='active'>all</NavLink>
-          <NavLink to='/done' className="bg-lemon rounded hover:bg-opacity-50 text-black shadow-inner text-2xl" activeClassName='active'>done</NavLink>
-          <NavLink to='/todo' className="bg-lemon rounded hover:bg-opacity-50 text-black sshadow-inner text-2xl" activeClassName='active'>todo</NavLink>
+          <NavLink to='/all' className="bg-lemon-100 rounded hover:bg-opacity-50 text-gray-600 shadow-inner  sm:text-2xl text-xs" activeClassName='active'>all</NavLink>
+          <NavLink to='/done' className="bg-lemon-100 rounded hover:bg-opacity-50 text-gray-600 shadow-inner sm:text-2xl text-xs" activeClassName='active'>done</NavLink>
+          <NavLink to='/todo' className="bg-lemon-100 rounded hover:bg-opacity-50 text-gray-600 sshadow-inner sm:text-2xl text-xs" activeClassName='active'>todo</NavLink>
       </NavList>
   );
 }

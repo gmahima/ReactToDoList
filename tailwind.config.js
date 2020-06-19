@@ -7,9 +7,19 @@ module.exports = {
           '100': '#d8c8fe',
           '200': '#a387e5'
         },
-        'orange': '#feebc8',
+        orange: {
+          '100': '#feebc8',
+          '200': '#e5c487',
+          '300': '#e5b6aa'
+        },
         'pink': '#fec8ee',
-        'lemon': '#eefec8',
+        lemon: {
+          '100': '#eefec8',
+          '200': '#c9e587',
+          '300': "#d3fec8",
+        },
+        'aqua': '#effef9',
+        'cream': '#fef9c8'
       }
     }
   }

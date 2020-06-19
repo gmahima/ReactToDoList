@@ -41,8 +41,8 @@ const Tasks = styled.div`
   return (
     <Router>
       <Route path="/">
-        <div className="bg-gray-100 grid w-screen h-screen text-center content-start gap-6 md:gap-12">
-          <h1 className="text-black text-3xl md:text-5xl font-bold bg-orange py-6">My To Do List</h1>
+        <div className="bg-aqua grid w-screen h-screen text-center content-start gap-6 md:gap-12">
+          <h1 className="text-black text-3xl md:text-5xl font-bold bg-orange-300 py-6">My To Do List</h1>
           <RadioList />
           <Tasks>
             <AddTaskForm />
