@@ -7288,6 +7288,10 @@ video {
 }
 
 .min-h-3 {
+  min-height: 9em;
+}
+
+.min-h-5 {
   min-height: 15em;
 }
 
@@ -22725,6 +22729,10 @@ code {
   }
 
   .sm\:min-h-3 {
+    min-height: 9em;
+  }
+
+  .sm\:min-h-5 {
     min-height: 15em;
   }
 
@@ -38132,6 +38140,10 @@ code {
   }
 
   .md\:min-h-3 {
+    min-height: 9em;
+  }
+
+  .md\:min-h-5 {
     min-height: 15em;
   }
 
@@ -53539,6 +53551,10 @@ code {
   }
 
   .lg\:min-h-3 {
+    min-height: 9em;
+  }
+
+  .lg\:min-h-5 {
     min-height: 15em;
   }
 
@@ -68946,6 +68962,10 @@ code {
   }
 
   .xl\:min-h-3 {
+    min-height: 9em;
+  }
+
+  .xl\:min-h-5 {
     min-height: 15em;
   }
 

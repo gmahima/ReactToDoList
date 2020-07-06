@@ -26,7 +26,7 @@ export default function TaskList({show}) {
   ));
   return (
 
-        <TaskUl className="shadow-lg rounded border pb-0 px-10 pt-2 min-h-3"> 
+        <TaskUl className="shadow-lg rounded border pb-0 px-10 pt-2 min-h-3 md:min-h-5"> 
           {
             taskList
           }
