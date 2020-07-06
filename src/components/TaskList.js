@@ -4,11 +4,7 @@ import Task from "./Task";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
 
-// const Div = styled.div`
-//   padding: 2px;
-//   background-color: ${props => (props.tasks.length === 0 ? "white" : "pink")};
-//   border-radius: 20px;
-// `;
+
 
 export default function TaskList({show}) {
   const context = useContext(TaskContext);
@@ -41,10 +37,11 @@ export default function TaskList({show}) {
 }
 const TaskUl = styled.ul`
 align-items: start;
+align-content:start;
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
-grid-auto-rows: 1fr;
+grid-auto-rows: auto
 grid-gap: 1px;
 margin: 0;
 padding: 0;
