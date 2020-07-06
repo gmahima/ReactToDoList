@@ -26,7 +26,7 @@ export default function TaskList({show}) {
   ));
   return (
 
-        <TaskUl className="shadow-lg rounded border pb-0 px-10 pt-3 min-h-3 md:min-h-5"> 
+        <TaskUl className="shadow-lg rounded border  md:px-10 px-0 py-1 min-h-1 md:min-h-5"> 
           {
             taskList
           }
@@ -44,9 +44,6 @@ grid-template-columns: 1fr;
 grid-auto-rows: auto
 grid-gap: 1px;
 margin: 0;
-@media(max-width: 400px) {
-  
-  grid-auto-rows: 2em;
-}
+
 
 `

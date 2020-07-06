@@ -80,7 +80,7 @@ export default function Task({ id }) {
   }
   return (
     
-        <ToDoItem className=" px-1 border-b border-gray-300 ">
+        <ToDoItem className=" border-b border-gray-300 ">
         <CloseButton className="text-center rounded sm:text-base text-xs py-0 sm:px-8 px-2  text-gray-500 hover:bg-opacity-75"
           onClick={() => {
             return context.actions.removeTask(task.id);
