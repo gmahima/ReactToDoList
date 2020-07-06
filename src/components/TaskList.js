@@ -40,9 +40,7 @@ export default function TaskList({show}) {
   );
 }
 const TaskUl = styled.ul`
-align-items: stretch;
-align-content: start;
-grid-gap: 0.05em;
+align-items: start;
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
