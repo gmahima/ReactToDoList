@@ -31,7 +31,7 @@ const Tasks = styled.div`
   display: grid;
   grid-template-columns: 0.5fr;
   justify-content: center;
-  grid-gap: 0.5em;
+  grid-gap: 2em;
   @media (max-width: 400px) {
     fgrid-template-columns: 0.1fr;
   }
@@ -41,8 +41,8 @@ const Tasks = styled.div`
   return (
     <Router>
       <Route path="/">
-        <div className="bg-aqua grid w-screen h-screen text-center content-start gap-6 md:gap-12">
-          <h1 className="text-black text-3xl md:text-5xl font-bold bg-orange-300 py-6">My To Do List</h1>
+        <div className="bg-white grid w-screen h-screen text-center content-start gap-6 md:gap-12">
+          <h1 className="text-black text-3xl md:text-5xl py-6">My To Do List</h1>
           <RadioList />
           <Tasks>
             <AddTaskForm />

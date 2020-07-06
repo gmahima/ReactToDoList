@@ -30,7 +30,7 @@ export default function TaskList({show}) {
   ));
   return (
 
-        <TaskUl>
+        <TaskUl className="shadow-lg rounded   border pb-0 px-10 pt-0 min-h-3"> 
           {
             taskList
           }
@@ -40,11 +40,14 @@ export default function TaskList({show}) {
   );
 }
 const TaskUl = styled.ul`
+align-items: stretch;
+align-content: start;
 grid-gap: 0.05em;
 list-style: none;
 display: grid;
 grid-template-columns: 1fr;
 grid-auto-rows: 1fr;
+grid-gap: 1px;
 margin: 0;
 padding: 0;
 @media(max-width: 400px) {

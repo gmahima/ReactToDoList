@@ -1,14 +1,11 @@
 import React, { useContext} from "react";
 //import { Consumer } from "./context/index";
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 import { TaskContext } from "./context/index";
 
 const TaskName = styled.span`
-  margin: 0 0.05em;
   display: grid;
   align-content: center;
-  font-weight: bold;
   font-size: 1em;
   text-decoration: ${({checked}) =>  (checked? 'line-through': 'none')};
   @media(max-width: 400px) {
@@ -28,6 +25,8 @@ height: 100%;
 display: grid;
 grid-template-columns: auto 1fr auto;
 align-items: stretch;
+grid-gap: 1px;
+
 `
 
 const CheckLabel = styled.label`
@@ -51,9 +50,7 @@ display: none;
 `
 export default function Task({ id }) {
   const context = useContext(TaskContext);
-  const theme = {
-    main: "white"
-  };
+
   const handleChange = (e) =>{
     console.log(e.target.value + " " + e.target.checked)
     context.actions.toggleIsDone(e.target.value, e.target.checked)
@@ -83,18 +80,18 @@ export default function Task({ id }) {
   }
   return (
     
-        <ToDoItem className="bg-pink hover:bg-opacity-75 rounded px-1 py-1">
-        <CloseButton className="text-center rounded sm:text-base text-xs py-0 sm:px-8 px-4 bg-lemon-300 text-gray-600 hover:bg-opacity-75"
+        <ToDoItem className="bg-white  px-1 border-b border-gray-300">
+        <CloseButton className="text-center rounded sm:text-base text-xs py-0 sm:px-8 px-2  text-gray-500 hover:bg-opacity-75"
           onClick={() => {
             return context.actions.removeTask(task.id);
           }}
         >
           &times;
         </CloseButton>
-        <TaskName checked={task.checked} className="text-gray-700">{task.name}</TaskName>
+        <TaskName checked={task.checked} className="text-gray-700 ">{task.name}</TaskName>
         {console.log(task.name)}
 
-        <CheckLabel checked={task.checked} className="text-center rounded sm:text-base text-xs py-0 sm:p-4 p-2 bg-cream text-gray-600 hover:bg-opacity-75">
+        <CheckLabel checked={task.checked} className="text-center rounded sm:text-base text-xs py-0 sm:p-4 p-2  text-gray-500 hover:bg-opacity-75">
           <CheckInput type="checkbox"
             value={task.id}
             checked={task.checked}
