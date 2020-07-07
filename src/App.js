@@ -40,9 +40,10 @@ const Tasks = styled.div`
  export default function ToDoList() {
   return (
     <Router>
-      <Route path="/">
+
         <div className="bg-white grid w-screen h-screen text-center content-start gap-6 md:gap-12">
           <h1 className="text-black text-3xl md:text-5xl py-6">My To Do List</h1>
+          <p><a href="https://github.com/gmahima/ReactToDoList">source code</a></p>
           <RadioList />
           <Tasks>
             <AddTaskForm />
@@ -54,7 +55,7 @@ const Tasks = styled.div`
             </Switch> 
           </Tasks>
         </div>
-      </Route>
+
     </Router>
   );
 }
