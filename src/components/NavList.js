@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {NavLink} from 'react-router-dom'
 
 
-const NavList = styled.div`
+const NavGroup = styled.div`
 
 display: grid;
 grid-template-columns: 9em 9em 9em;
@@ -57,12 +57,12 @@ grid-gap: 1em;
   
 // }
 // `
-export default function RadioList() {
+export default function NavList() {
   return (
-    <NavList>
+    <NavGroup>
           <NavLink to='/all' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>all</NavLink>
           <NavLink to='/done' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>done</NavLink>
           <NavLink to='/todo' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>todo</NavLink>
-      </NavList>
+      </NavGroup>
   );
 }

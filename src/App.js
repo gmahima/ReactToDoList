@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList";
-import RadioList from "./components/RadioList";
+import NavList from "./components/NavList";
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 // const Application = styled.div`
@@ -44,7 +44,7 @@ const Tasks = styled.div`
         <div className="bg-white grid w-screen h-screen text-center content-start gap-6 md:gap-12">
           <h1 className="text-black text-3xl md:text-5xl py-6">My To Do List</h1>
           <p><a href="https://github.com/gmahima/ReactToDoList">source code</a></p>
-          <RadioList />
+          <NavList />
           <Tasks>
             <AddTaskForm />
             <Switch>
