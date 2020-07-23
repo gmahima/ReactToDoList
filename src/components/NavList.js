@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {NavLink} from 'react-router-dom'
-
+import tw from 'twin.macro'
 
 const NavGroup = styled.div`
 
@@ -57,12 +57,23 @@ grid-gap: 1em;
   
 // }
 // `
+
+const activeClassName = 'active'
+const SNavLink = styled(NavLink).attrs({
+  activeClassName: activeClassName,
+})`
+${tw`text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100`}
+&&.${activeClassName} {
+  ${tw`bg-gray-200`}
+}
+
+`
 export default function NavList() {
   return (
     <NavGroup>
-          <NavLink to='/all' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>all</NavLink>
-          <NavLink to='/done' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>done</NavLink>
-          <NavLink to='/todo' className="text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border hover:bg-gray-100" activeClassName='active'>todo</NavLink>
+          <SNavLink to='/all'>all</SNavLink>
+          <SNavLink to='/done'>done</SNavLink>
+          <SNavLink to='/todo'>todo</SNavLink>
       </NavGroup>
   );
 }

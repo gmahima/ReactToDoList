@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 import Task from "./Task";
 import styled from "styled-components";
 import { TaskContext } from "./context/index";
-
+import tw from 'twin.macro'
 
 
 export default function TaskList({show}) {
@@ -26,7 +26,7 @@ export default function TaskList({show}) {
   ));
   return (
 
-        <TaskUl className="shadow-lg rounded border  md:px-10 px-0 py-1 min-h-1 md:min-h-5"> 
+        <TaskUl> 
           {
             taskList
           }
@@ -44,6 +44,7 @@ grid-template-columns: 1fr;
 grid-auto-rows: auto
 grid-gap: 1px;
 margin: 0;
+${tw`shadow-lg rounded border  md:px-10 px-0 py-1 min-h-1 md:min-h-5`}
 
 
 `

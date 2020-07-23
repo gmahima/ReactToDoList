@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import tw from 'twin.macro'
 import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList";
 import NavList from "./components/NavList";
@@ -37,13 +38,18 @@ const Tasks = styled.div`
   }
 
 `
+const H1 = styled.h1`
+${tw`text-black text-3xl md:text-5xl py-6`}
+`
+const Container = styled.div`
+${tw`bg-white grid w-screen h-screen text-center content-start gap-6 md:gap-12`}
+`
  export default function ToDoList() {
   return (
     <Router>
 
-        <div className="bg-white grid w-screen h-screen text-center content-start gap-6 md:gap-12">
-          <h1 className="text-black text-3xl md:text-5xl py-6">My To Do List</h1>
-          <p><a href="https://github.com/gmahima/ReactToDoList">source code</a></p>
+        <Container >
+          <H1>My To Do List</H1>
           <NavList />
           <Tasks>
             <AddTaskForm />
@@ -54,7 +60,7 @@ const Tasks = styled.div`
               <Route path='/todo' render={() => (<TaskList show='todo' />)}/>
             </Switch> 
           </Tasks>
-        </div>
+        </Container>
 
     </Router>
   );

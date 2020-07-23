@@ -13,9 +13,13 @@
     "react-router-dom": "5.1.2",
     "react-scripts": "3.0.1",
     "styled-components": "4.4.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.5.2"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "babel-plugin-macros": "^2.8.0",
+    "postcss-cli": "^7.1.1",
+    "twin.macro": "^1.6.0",
     "typescript": "3.3.3"
   },
   "scripts": {

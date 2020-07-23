@@ -1,19 +1,13 @@
 import React, { useContext } from "react";
 import { TaskContext } from "./context/index";
 import styled from "styled-components";
+import tw from 'twin.macro'
 const TextInput = styled.input`
-  padding: 1em;
-  box-sizing: border-box;
-  ::placeholder {
-    color: #6c6c6d;
-  }
-  background-color: white;
-  color: #6c6c6d;
-  @media(max-width: 400px) {
-    padding:0.5em;
-    font-size: 0.5em;
-    
-  }
+${tw `text-xs
+p-2 rounded bg-white placeholder-gray-600 box-border sm:text-base sm:p-4
+ text-black shadow-sm border
+ hover:bg-gray-200 
+ focus:bg-gray-100`}
 `;
 const TaskForm = styled.form`
 text-align: center;
@@ -30,23 +24,9 @@ align-content: center;
 
 `
 const Submit = styled(TextInput)`
-text-align: center;
-padding: 1em;
-cursor: pointer;
-&:hover {
-  background-color: #F0F0F0;
-}
-&:active {
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-}
-@media(max-width: 400px) {
-  padding:0.5em;
-  font-size: 0.5em;
-  
-}
-  
+${tw`text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border 
+hover:bg-gray-100 
+focus:bg-opacity-50`}
 
 `;
 export default function AddTaskForm() {
@@ -61,14 +41,8 @@ export default function AddTaskForm() {
   };
   return (
     <TaskForm onSubmit={handleSubmit}>
-      <input type="text" ref={taskInput} placeholder="enter task" className="text-xs
-       p-2 rounded bg-white placeholder-gray-600 box-border sm:text-base sm:p-4
-        text-black shadow-sm border
-        hover:bg-gray-200 
-        focus:bg-gray-100 "/>
-      <input type="submit" value="add task" className=" text-xs p-2 rounded box-border sm:px-10 sm:text-base text-gray-600 bg-white  text-center shadow-sm border 
-        hover:bg-gray-100 
-        focus:bg-opacity-50"/>
+      <TextInput type="text" ref={taskInput} placeholder="enter task"/>
+      <Submit type="submit" value="add task"/>
     </TaskForm>
   );
 }
