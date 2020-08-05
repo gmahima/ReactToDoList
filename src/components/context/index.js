@@ -1,42 +1,116 @@
-import React, { useState, createContext } from "react";
-
+import React, { useState, useEffect, createContext } from "react";
+const Url = 'http://localhost:8000/tasks/'
 export const TaskContext = createContext(null);
 export function Provider(props) {
-  const [tasks, setTasks] = useState([{name: 'shopping', id:'1shopping', checked: false}, {name: 'read a book', id:'2book', checked: false}, {name: 'eat ice cream', id:'3eaticecream', checked: false}]);
+  const [tasks, setTasks] = useState([]);
   const handleAddTask = name => {
-    // setPrevTaskId(prevTaskId + 1);
+    const task  = {
+      name,
+      id: tasks.length.toString()+name,
+      checked: false
+    }
     setTasks([
       ...tasks,
-      {
-        name,
-        id: tasks.length.toString()+name,
-        checked: false
-      }
+      task
     ]);
-   
+    fetch(Url, {
+      method: 'POST',
+      body: JSON.stringify(task),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'same-origin'
+
+    }).then(res => {
+        if(res.ok) {
+            return res
+        }
+        else {
+            let err = res.json()
+            err.res = res;
+            throw err; 
+        }
+    }, error => {
+        console.log("error: ", error)
+        let errmes = new Error(error.message)
+        throw(errmes)
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(error =>{console.log(error)})
   };
+  useEffect(() => {
+    console.log("called")
+    fetch(Url)
+    .then(res => {
+        if(res.ok) {
+            return res
+        }
+        else {
+            let err = new Error(res.status + res.statusText)
+            err.res = res;
+            throw err; 
+        }
+    }, error => {
+        console.log("error: ", error)
+        let errmes = new Error(error.message)
+        throw(errmes)
+    })
+    .then(res => res.json())
+    .then(tasks => {console.log(tasks); setTasks(tasks)})
+    .catch(error =>{console.log(error)})
+  }, [])
   //console.log(tasks);
   const handleRemoveTask = id => {
     console.log(id , " is removed")
     setTasks(tasks.filter(p => p.id !== id));
+    fetch(Url+id, {
+      method: 'DELETE',
+    })
+    .then(res => res.text())
+    .then(res => console.log(res))
+    .catch(error =>{console.log(error)})
+
   };
   const toggleIsDone = (id, checked) => {
     // const i = tasks.findIndex(t => t.id === id);
     // let newTasks = tasks.slice();
     // newTasks[i].done = checked;
     // setTasks(newTasks)  
+    let task =  {}
     const n = tasks.slice()
     for (let o of n) {
       if(o.id=== id) {
         o.checked= checked;
+        task = o;
       }
     }
     setTasks(n);
+    fetch(Url+id, {
+      method: 'PUT',
+      body: JSON.stringify(task),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+   credentials: 'same-origin'
+    }).then(res => {
+      if(res.ok) {
+          return res
+      }
+      else {
+          let err = new Error(res.status+ ": " + res.statusText)
+          err.res = res;
+          throw err; 
+      }
+  }, error => {
+      console.log("error: ", error)
+      let errmes = new Error(error.message)
+      throw(errmes)
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(error =>{console.log(error)})
 }
-
-  
-  // const doneTasks = tasks.filter(task => task.done === true);
-  // const todoTasks = tasks.filter(task => task.done === false);
 
   return (
     <TaskContext.Provider

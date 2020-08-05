@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "name": "read a book",
+      "id": "0read a book",
+      "checked": false
+    },
+    {
+      "name": "play",
+      "id": "1play",
+      "checked": true
+    },
+    {
+      "name": "nap",
+      "id": "2nap",
+      "checked": false
+    }
+  ]
+}
