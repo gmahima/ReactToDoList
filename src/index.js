@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ToDoList from "./App";
 import { Provider } from "./components/context/index";
-import './index.css'
+import './assets/styles.css'
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
