@@ -12,7 +12,6 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 //   width: 100%;
 //   height: 100vh;
 //   margin: 0;
-//   align-content: start;
 //   background-color: black;
 //   display: grid;
 //   grid-gap: 3em;
